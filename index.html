@@ -10,7 +10,16 @@
     <main>
       <h1>SimpleLink</h1>
       <p>Create your own bio link in seconds.</p>
-      <button id="cta-button">Get Started</button>
+
+      <!-- Add a form for username input -->
+      <form id="username-form">
+        <input type="text" id="username" placeholder="Enter your username" required />
+        <button type="submit" id="cta-button">Get Started</button>
+      </form>
+
+      <div id="welcome-message" style="display: none">
+        <p>Welcome, <span id="user-name"></span>! Let’s get started!</p>
+      </div>
     </main>
     <script src="main.js"></script>
   </body>
