@@ -1,0 +1,36 @@
+/* Default (mobile-first) styles */
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+main {
+  text-align: center;
+}
+
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Add some padding for larger screens */
+@media (min-width: 768px) {
+  body {
+    background: #e0e0e0;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
