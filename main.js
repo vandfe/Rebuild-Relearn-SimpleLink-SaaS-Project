@@ -1,23 +1,34 @@
-// Cache DOM elements for efficiency
+// Cache DOM elements
 const usernameForm = document.getElementById('username-form');
 const usernameInput = document.getElementById('username');
 const welcomeMessage = document.getElementById('welcome-message');
 const userNameSpan = document.getElementById('user-name');
 
+// Utility function: show welcome message
+function showWelcome(username) {
+  usernameForm.style.display = 'none';
+  welcomeMessage.style.display = 'block';
+  userNameSpan.textContent = username;
+}
+
+// Check if a username exists in localStorage
+const savedUsername = localStorage.getItem('username');
+if (savedUsername) {
+  showWelcome(savedUsername);
+}
+
 // Handle form submission
 function handleFormSubmission(event) {
-  event.preventDefault(); // Prevent page reload
+  event.preventDefault();
 
   const username = usernameInput.value;
   if (username) {
-    // Hide the form and show the personalized message
-    usernameForm.style.display = 'none';
-    welcomeMessage.style.display = 'block';
-    userNameSpan.textContent = username;
+    localStorage.setItem('username', username); // Save to localStorage
+    showWelcome(username);
   } else {
     alert('Please enter a valid username!');
   }
 }
 
-// Add event listener to form submission
+// Event listener
 usernameForm.addEventListener('submit', handleFormSubmission);
