@@ -3,6 +3,7 @@ const usernameForm = document.getElementById('username-form');
 const usernameInput = document.getElementById('username');
 const welcomeMessage = document.getElementById('welcome-message');
 const userNameSpan = document.getElementById('user-name');
+const resetButton = document.getElementById('reset-button');
 
 // Utility function: show welcome message
 function showWelcome(username) {
@@ -32,3 +33,7 @@ function handleFormSubmission(event) {
 
 // Event listener
 usernameForm.addEventListener('submit', handleFormSubmission);
+resetButton.addEventListener('click', function () {
+  localStorage.removeItem('username');
+  location.reload(); // Reload page to reset state
+});
